@@ -13,6 +13,7 @@
     "url": "https://github.com/ErraticTurtle35/greenhouse-monitor"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "thinky": "^2.3.8"
   }
