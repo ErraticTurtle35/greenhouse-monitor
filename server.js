@@ -3,18 +3,6 @@ var express = require('express'),
     config = require('./server/configuration'),
     app = express();
 
-var thinky = require('thinky')(config.rethinkdb);
-var r = thinky.r;
-var type = thinky.type;
-
-var TemperatureLog = thinky.createModel("TemperatureLog", {
-    id: type.string(),
-    date: type.date(),
-    value: type.number(),
-    createdAt: type.date().default(r.now())
-});
-TemperatureLog.ensureIndex("createdAt");
-
 TemperatureLog.changes().then(function (feed) {
     feed.each(function (error, doc) {
         if (error) {

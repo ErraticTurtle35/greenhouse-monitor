@@ -12,18 +12,4 @@ var GreenHouse = thinky.createModel('GreenHouse', {
     description: type.string(),
     state: type.boolean()
 });
-
-
-var Sensor = thinky.createModel('Sensor', {
-    id: type.string(),
-    name: type.string(),
-    type: type.string(),
-    frequency: type.number(),
-    state: type.boolean(),
-    minimalValue: type.number(),
-    maximumValue: type.number()
-});
-
-
-Sensor.belongsTo(GreenHouse, "GreenHouse", "greenhouseId", "id");
-GreenHouse.hasMany(Sensor, "Sensor", "id", "sensorId");
+module.exports = GreenHouse;
