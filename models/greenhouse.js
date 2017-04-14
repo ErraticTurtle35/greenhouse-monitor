@@ -1,4 +1,4 @@
-var config = require('./server/configuration');
+var config = require('../server/customConf');
 var thinky = require('thinky')(config.rethinkdb);
 var r = thinky.r;
 var type = thinky.type;
