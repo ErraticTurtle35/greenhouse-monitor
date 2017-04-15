@@ -5,7 +5,7 @@ module.exports = {
         var viewModel = {
             greenhouse: []
         };
-        response.render('greenhouse', viewModel);
+        response.render('new-greenhouse', viewModel);
     },
 
     saveGreenhouse: function (request, response) {
@@ -28,5 +28,16 @@ module.exports = {
             console.log('save a new greenhouse, baby!', greenhouse.id);
         })
 
+    },
+
+    getGreenHouseById: function (request, response) {
+        var viewModel = {
+            greenhouse: {}
+        };
+
+        GreenHouseModel.get(request.params.greenhouseId).then(function (greenhouse) {
+            response.render('greenhouse', viewModel);
+            console.log('Seeing the greenhouse', greenhouse.id);
+        })
     }
 };

@@ -1,20 +1,17 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            Invernadero
+            Nuevo Invernadero
         </h3>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <button id=btn-editgreenhouse" class="btn btn-default">
-                Editar
-            </button>
-            <button id="btn-updategreenhouse" class="btn btn-default">
+            <button id="btn-newgreenhouse" class="btn btn-default">
                 Guardar
             </button>
         </div>
         <div class="panel-body">
-            <form id="greenHouseForm" action="/updateGreenhouse" method="post" class="hide">
+            <form id="newGreenHouseForm" action="/savegreenhouse" method="post">
                 <div class="form-group">
                     <label for="name">Nombre:</label>
                     <div class="form-inline">
