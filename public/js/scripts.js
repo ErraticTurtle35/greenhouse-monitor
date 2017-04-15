@@ -6,11 +6,11 @@ $(function () {
 
     $('#btn-editgreenhouse').on('click', function (event) {
         event.preventDefault();
-        $("#greenHouseForm").removeClass("hide");
+        $("#greenhouseForm").removeClass("hide");
     });
 
     $('#btn-updategreenhouse').on('click', function (event) {
         event.preventDefault();
-        $('#greenHouseForm').addClass("hide");
+        $('#greenhouseForm').addClass("hide");
     });
 });

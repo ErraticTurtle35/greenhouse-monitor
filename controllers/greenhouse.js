@@ -36,6 +36,7 @@ module.exports = {
         };
 
         GreenHouseModel.get(request.params.greenhouseId).then(function (greenhouse) {
+            viewModel.greenhouse = greenhouse;
             response.render('greenhouse', viewModel);
             console.log('Seeing the greenhouse', greenhouse.id);
         })
