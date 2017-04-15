@@ -15,6 +15,7 @@ $(function () {
     $('#btn-updategreenhouse').on('click', function (event) {
         event.preventDefault();
         $('#greenhouseForm').addClass("hide");
+        $('#greenhouseInformation').removeClass('hide');
     });
 
     function getGreenhouseData() {
