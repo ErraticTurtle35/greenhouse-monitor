@@ -6,34 +6,33 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <button id=editgreenhouse" class="btn btn-default">
+            <button id=btn-editgreenhouse" class="btn btn-default">
                 Editar
             </button>
-            <a href="/savegreenhouse" class="btn btn-default">
+            <button id="btn-newgreenhouse" class="btn btn-default">
                 Guardar
-            </a>
+            </button>
         </div>
         <div class="panel-body">
-            <form>
+            <form id="newGreenHouseForm" action="/savegreenhouse" method="post">
                 <div class="form-group">
                     <label for="name">Nombre:</label>
                     <div class="form-inline">
-                        <input type="text" class="form-control" id="name" placeholder="Nombre">
-                        <input type="checkbox"> Activo
+                        <input type="text" class="form-control" id="nombre" name="name" placeholder="Nombre">
+                        <input id="estado" name="state" type="checkbox"> Activo
                     </div>
                     <br>
                     <label for="direccion">Direción:</label>
-                    <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                    <input type="text" class="form-control" id="direccion" name="address" placeholder="Dirección">
                     <br>
                     <label for="dueño">Dueño:</label>
-                    <input type="text" class="form-control" id="dueño" placeholder="Dueño">
+                    <input type="text" class="form-control" id="dueño" name="owner" placeholder="Dueño">
                     <br>
                     <label for="descripccion">Descripción:</label>
-                    <textarea id="descripccion" class="form-control" rows="3" placeholder="Descripción"></textarea>
-
+                    <textarea id="descripcion" name="description" class="form-control" rows="3"
+                              placeholder="Descripción"></textarea>
                 </div>
             </form>
         </div>
     </div>
-
 </div>

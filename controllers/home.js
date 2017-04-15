@@ -7,7 +7,7 @@ module.exports = {
         };
 
         GreenHouseModel.run().then(function (greenHouses) {
-            viewModel.greenhouses = JSON.stringify(greenHouses);
+            viewModel.greenhouses = greenHouses;
             response.render('index', viewModel);
         }).error(function (response) {
             return function (error) {

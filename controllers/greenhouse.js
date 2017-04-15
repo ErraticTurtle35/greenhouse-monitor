@@ -10,6 +10,11 @@ module.exports = {
 
     saveGreenhouse: function (request, response) {
         var body = request.body;
+        if (body.state === 'on') {
+            body.state = true
+        } else {
+            body.state = false
+        }
         var greenHouse = new GreenHouseModel({
             name: body.name,
             state: body.state,
@@ -20,6 +25,7 @@ module.exports = {
 
         greenHouse.saveAll().then(function (greenhouse) {
             response.redirect('/greenhouse/' + greenhouse.id);
+            console.log('save a new greenhouse, baby!', greenhouse.id);
         })
 
     }
