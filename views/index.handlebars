@@ -17,16 +17,31 @@
                 <th>Dirección</th>
                 <th>Dueño</th>
                 <th>Estado</th>
+                <th>Acciones</th>
                 </thead>
                 <tbody>
-                {{#greenhouses}}
+                {{#each greenhouses}}
                     <tr>
                         <td>{{name}}</td>
                         <td>{{address}}</td>
                         <td>{{owner}}</td>
-                        <td>{{state}}</td>
+                        <td>
+                            {{#if state}}
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            {{else}}
+                                <i class="fa fa-circle-thin" aria-hidden="true"></i>
+                            {{/if}}
+                        </td>
+                        <td>
+                            <a>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                            <a>
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
-                {{/greenhouses}}
+                {{/each}}
                 </tbody>
             </table>
         </div>
