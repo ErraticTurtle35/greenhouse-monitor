@@ -38,15 +38,15 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h3>Nombre:
-                            <small>{{greenhouse.name}}</small>
+                            <small id="greenhouseName">{{greenhouse.name}}</small>
                         </h3>
                     </div>
                     <div class="col-md-4">
                         <h3>Estado:
                             {{#if greenhouse.state}}
-                                <small>Activo</small>
+                                <small id="greenhouseActive">Activo</small>
                             {{else}}
-                                <small>Inactivo</small>
+                                <small id="greenhouseInactive">Inactivo</small>
                             {{/if}}
                         </h3>
                     </div>
@@ -54,21 +54,21 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h3>Dirección:
-                            <small>{{greenhouse.address}}</small>
+                            <small id="greenhouseAddress">{{greenhouse.address}}</small>
                         </h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-8">
                         <h3>Dueño:
-                            <small>{{greenhouse.owner}}</small>
+                            <small id="greenhouseOwner">{{greenhouse.owner}}</small>
                         </h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-8">
                         <h3>Descripción:
-                            <small>{{greenhouse.description}}</small>
+                            <small id="greenhouseDescription">{{greenhouse.description}}</small>
                         </h3>
                     </div>
                 </div>
