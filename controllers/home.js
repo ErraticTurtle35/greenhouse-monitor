@@ -22,6 +22,7 @@ module.exports = {
                     greenhouses: []
                 };
                 greenhouse.isSaved();
+                console.log('deleting a greenhouse, baby!');
                 GreenHouseModel.run().then(function (greenhouses) {
                     viewModel.greenhouses = greenhouses;
                     response.render('index', viewModel);
