@@ -10,5 +10,6 @@ module.exports = function (app, upload) {
     router.post('/savegreenhouse', greenhouse.saveGreenhouse);
     router.get('/greenhouse/:greenhouseId', greenhouse.getGreenHouseById);
     router.put('/greenhouse/:greenhouseId', greenhouse.updateGreenhouseById);
+    router.get('/greenhouse/delete/:greenhouseId', home.deleteGreenhouseById);
     app.use(router)
 };
