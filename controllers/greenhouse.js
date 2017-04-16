@@ -40,5 +40,20 @@ module.exports = {
             response.render('greenhouse', viewModel);
             console.log('Seeing the greenhouse', greenhouse.id);
         })
+    },
+
+    updateGreenhouseById: function (request, response) {
+        var data = request.body; // Data posted by the user
+        GreenHouseModel.get(request.params.greenhouseId).run().then(function (oldGreenhouse) {
+            if (!data.state && data.state !== 'on') {
+                data.state = false;
+            } else {
+                data.state = true;
+            }
+            oldGreenhouse.merge(data).save().then(function (newGreenhouse) {
+                response.json(newGreenhouse);
+                console.log('Updating the greenhouse', newGreenhouse.id);
+            });
+        });
     }
 };

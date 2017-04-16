@@ -9,5 +9,6 @@ module.exports = function (app, upload) {
     router.get('/greenhouse', greenhouse.index);
     router.post('/savegreenhouse', greenhouse.saveGreenhouse);
     router.get('/greenhouse/:greenhouseId', greenhouse.getGreenHouseById);
+    router.put('/greenhouse/:greenhouseId', greenhouse.updateGreenhouseById);
     app.use(router)
 };
