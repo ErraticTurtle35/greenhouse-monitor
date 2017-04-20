@@ -55,5 +55,17 @@ module.exports = {
                 console.log('Updating the greenhouse', newGreenhouse.id);
             });
         });
+    },
+
+    saveSensor: function (request, response) {
+
+    },
+
+    updateSensorById: function (request, response) {
+
+    },
+
+    deleteSensorById: function (request, response) {
+
     }
 };
