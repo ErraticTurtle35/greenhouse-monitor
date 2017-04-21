@@ -29,6 +29,16 @@ $(function () {
         });
     });
 
+    $('#btn-createsensor').on('click', function (event) {
+        event.preventDefault();
+        $('#sensorForm').removeClass("hide");
+    });
+
+    $('#btn-savesensor').on('click', function (event) {
+        event.preventDefault();
+        $('#sensorForm').addClass("hide");
+    });
+
     function getGreenhouseData() {
         var greenhouse = {};
         greenhouse.state = false;
