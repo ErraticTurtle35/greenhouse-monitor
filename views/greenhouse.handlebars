@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <label for="fsName">Nombre:</label>
                         <div class="form-inline">
-                            <input type="text" class="form-control hide" id="fsId" name="id">
+                                <input type="text" class="form-control hide" id="fsId" name="id">
                             <input type="text" class="form-control" id="fsName" name="name" placeholder="Nombre">
                             <select class="form-control" id="fsType" name="type">
                                 <option value="Humedad">Humedad</option>
@@ -102,7 +102,7 @@
                 </form>
             </div>
             <div class="panel-body">
-                <table class="table table-hover">
+                <table class="table table-hover sensor-table">
                     <thead>
                     <th>Nombre</th>
                     <th>Tipo</th>
@@ -111,13 +111,14 @@
                     <tbody>
                     {{#each greenhouse.sensors}}
                         <tr>
-                            <td>{{name}}</td>
-                            <td>{{type}}</td>
+                            <td id="sensorId" class="hide">{{id}}</td>
+                            <td id="sensorName">{{name}}</td>
+                            <td id="sensorType">{{type}}</td>
                             <td>
-                                <a href="/greenhouse/sensor/{{id}}">
+                                <a id="updateSensor">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </a>
-                                <a href="/greenhouse/sensor/delete/{{id}}">
+                                <a href="/greenhouse/{{greenhouseId}}/sensor/delete/{{id}}">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>

@@ -39,16 +39,46 @@ $(function () {
         var sensorForm = $('#sensorForm');
         var greenhouseId = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
         var sensorFormData = objectifyForm(sensorForm.serializeArray());
-        $.ajax({
-            url: '/greenhouse/sensor/' + greenhouseId,
-            type: 'POST',
-            data: sensorFormData
-        }).done(function (sensor) {
-            if (sensor) {
-                location.reload();
-            }
-        });
+        if (sensorFormData.id) {
+            $.ajax({
+                url: '/greenhouse/' + greenhouseId + '/sensor/' + sensorFormData.id,
+                type: 'PUT',
+                data: sensorFormData
+            }).done(function (sensor) {
+                if (sensor) {
+                    location.reload();
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/greenhouse/sensor/' + greenhouseId,
+                type: 'POST',
+                data: sensorFormData
+            }).done(function (sensor) {
+                if (sensor) {
+                    location.reload();
+                }
+            });
+        }
     });
+
+    $(".sensor-table td").on('click', function (event) {
+        event.preventDefault();
+        var sensor = $(this).parent("tr")[0];
+
+        showSensorForm();
+        populateSensorFormData(sensor)
+    });
+
+    function populateSensorFormData(sensor) {
+        $('#fsId').val($($(sensor).find('#sensorId')[0]).text());
+        $('#fsName').val($($(sensor).find('#sensorName')[0]).text());
+        $('#fsType').val($($(sensor).find('#sensorType')[0]).text());
+    }
+
+    function showSensorForm() {
+        $('#sensorForm').removeClass("hide");
+    }
 
     function getGreenhouseData() {
         var greenhouse = {};

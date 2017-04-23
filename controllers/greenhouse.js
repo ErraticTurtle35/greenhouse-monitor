@@ -74,10 +74,31 @@ module.exports = {
     },
 
     updateSensorById: function (request, response) {
-
+        var data = request.body;
+        SensorModel.get(request.params.sensorId).run().then(function (sensor) {
+            sensor.merge({
+                name: data.name,
+                type: data.type
+            }).save().then(function (updatedSensor) {
+                response.json(true);
+                console.log('Updated sensor, baby!');
+            })
+        })
     },
 
     deleteSensorById: function (request, response) {
-
+        SensorModel.get(request.params.sensorId).run().then(function (sensor) {
+            sensor.purge().then(function (result) {
+                var viewModel = {
+                    greenhouses: []
+                };
+                sensor.saveAll();
+                console.log('deleting a greenhouse, baby!');
+                GreenHouseModel.get(request.params.greenhouseId).getJoin({sensors: true}).run().then(function (greenhouse) {
+                    viewModel.greenhouse = greenhouse;
+                    response.render('greenhouse', viewModel);
+                })
+            })
+        })
     }
 };
