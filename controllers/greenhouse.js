@@ -1,4 +1,5 @@
 var GreenHouseModel = require('../models/greenhouse');
+var SensorModel = require('../models/sensors');
 
 module.exports = {
     index: function (request, response) {
@@ -35,7 +36,7 @@ module.exports = {
             greenhouse: {}
         };
 
-        GreenHouseModel.get(request.params.greenhouseId).then(function (greenhouse) {
+        GreenHouseModel.get(request.params.greenhouseId).getJoin({sensors: true}).then(function (greenhouse) {
             viewModel.greenhouse = greenhouse;
             response.render('greenhouse', viewModel);
             console.log('Seeing the greenhouse', greenhouse.id);
@@ -58,7 +59,18 @@ module.exports = {
     },
 
     saveSensor: function (request, response) {
-
+        var body = request.body;
+        GreenHouseModel.get(request.params.greenhouseId).run().then(function (greenhouse) {
+            var sensor = new SensorModel({
+                name: body.name,
+                type: body.type
+            });
+            greenhouse.sensors = [sensor];
+            greenhouse.saveAll({sensors: true}).then(function (updatedGreenhouse) {
+                response.json(true);
+                console.log('Save a new sensors, baby');
+            })
+        });
     },
 
     updateSensorById: function (request, response) {

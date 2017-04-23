@@ -11,10 +11,5 @@ var GreenHouse = thinky.createModel('GreenHouse', {
     owner: type.string(),
     description: type.string(),
     state: type.boolean(),
-    sensors: [type.object().schema({
-        id: type.string(),
-        name: type.string(),
-        type: type.string()
-    })]
 });
 module.exports = GreenHouse;

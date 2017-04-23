@@ -15,7 +15,7 @@ $(function () {
     $('#btn-updategreenhouse').on('click', function (event) {
         event.preventDefault();
         var greenhouseId = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
-        greenhouseFormData = objectifyForm($('#greenhouseForm').serializeArray());
+        var greenhouseFormData = objectifyForm($('#greenhouseForm').serializeArray());
         $.ajax({
             url: '/greenhouse/' + greenhouseId,
             type: 'PUT',
@@ -36,7 +36,18 @@ $(function () {
 
     $('#btn-savesensor').on('click', function (event) {
         event.preventDefault();
-        $('#sensorForm').addClass("hide");
+        var sensorForm = $('#sensorForm');
+        var greenhouseId = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+        var sensorFormData = objectifyForm(sensorForm.serializeArray());
+        $.ajax({
+            url: '/greenhouse/sensor/' + greenhouseId,
+            type: 'POST',
+            data: sensorFormData
+        }).done(function (sensor) {
+            if (sensor) {
+                location.reload();
+            }
+        });
     });
 
     function getGreenhouseData() {

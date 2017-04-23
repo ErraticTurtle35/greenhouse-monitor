@@ -90,14 +90,14 @@
                     <div class="form-group">
                         <label for="fsName">Nombre:</label>
                         <div class="form-inline">
+                            <input type="text" class="form-control hide" id="fsId" name="id">
                             <input type="text" class="form-control" id="fsName" name="name" placeholder="Nombre">
-                            <select>
+                            <select class="form-control" id="fsType" name="type">
                                 <option value="Humedad">Humedad</option>
                                 <option value="Temperatura">Temperatura</option>
                                 <option value="Ventilacion">Ventilacion</option>
                             </select>
                         </div>
-
                     </div>
                 </form>
             </div>
@@ -109,7 +109,7 @@
                     <th>Acciones</th>
                     </thead>
                     <tbody>
-                    {{#each sensors}}
+                    {{#each greenhouse.sensors}}
                         <tr>
                             <td>{{name}}</td>
                             <td>{{type}}</td>
