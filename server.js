@@ -1,6 +1,6 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-    customConf = require('./server/customConf'),
+    customConf = require('./customConf'),
     configuration = require('./server/configuration'),
     app = express();
 
