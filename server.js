@@ -1,11 +1,8 @@
-var express = require('express');
-var customConf = require('./customConf');
+var express = require('./config/express');
 
-var app = express();
-app.use('/', function (request, response) {
-    response.send('Hello World!');
-});
-app.listen(customConf.express.port);
-console.log('Server running in port: ' + customConf.express.port);
-
+var app;
+app = express();
+app.listen(3300);
 module.exports = app;
+
+console.log('Server running at http://localhost:3300/');
