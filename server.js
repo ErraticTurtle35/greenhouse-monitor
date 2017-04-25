@@ -1,14 +1,11 @@
-var express = require('express'),
-    bodyParser = require('body-parser'),
-    customConf = require('./customConf'),
-    configuration = require('./server/configuration'),
-    app = express();
+var express = require('express');
+var customConf = require('./customConf');
 
-app.use(express.static(__dirname + '/views'));
-app.use(bodyParser());
-app.set('port', process.env.port || customConf.express.port);
-app = configuration(app);
-
-var server = app.listen(app.get('port'), function () {
-    console.log('Server up: http://localhost:' + app.get('port'));
+var app = express();
+app.use('/', function (request, response) {
+    response.send('Hello World!');
 });
+app.listen(customConf.express.port);
+console.log('Server running in port: ' + customConf.express.port);
+
+module.exports = app;
