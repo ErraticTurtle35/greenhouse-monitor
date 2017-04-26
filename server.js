@@ -1,7 +1,9 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var express = require('./config/express');
+var express = require('./config/express'),
+    thinky = require('./config/thinky');
 
+var db = thinky();
 var app;
 app = express();
 app.listen(3300);
